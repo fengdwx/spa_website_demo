@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import configparser
+# import configparser
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -78,17 +78,22 @@ WSGI_APPLICATION = 'website_demo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-conf = configparser.ConfigParser()
-conf.read('config.ini')
+# conf = configparser.ConfigParser()
+# conf.read('config.ini')
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME': 'website_demo',
-        'USER': conf.get('mysql', 'user'),
-        'PASSWORD': conf.get('mysql', 'pwd'),
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        # 'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+        # 'NAME': 'website_demo',
+        # 'USER': conf.get('mysql', 'user'),
+        # 'PASSWORD': conf.get('mysql', 'pwd'),
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '3306',
     }
 }
 
