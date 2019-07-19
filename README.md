@@ -1,2 +1,2 @@
 # spa_website_demo
-a spa website demo , base django,  vue, highcharts, element UI
+a spa website demo , using django,  vue, highcharts, element UI
