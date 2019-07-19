@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import configparser
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = '%zv41%43+smk==_b1%4tr9j%e4hc8w#1yc7&=+a(jw6f+q+xgj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,14 +78,15 @@ WSGI_APPLICATION = 'website_demo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+conf = configparser.ConfigParser()
+conf.read('config.ini')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'NAME': 'website_demo',
-        'USER': 'root',
-        'PASSWORD': '123456aaa',
+        'USER': conf.get('mysql', 'user'),
+        'PASSWORD': conf.get('mysql', 'pwd'),
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
@@ -130,9 +132,10 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-
+# STATIC_ROOT = 'static'
 # Add for Vue.js
 STATICFILES_DIRS = (
     # os.path.join(os.path.join(BASE_DIR, 'static')),
     os.path.join(os.path.join(BASE_DIR, 'spa-website-frontend/dist/static')),
+    # os.path.join(BASE_DIR, '/spa-website-frontend/dist/static'),
 )
