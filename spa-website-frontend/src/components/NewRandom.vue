@@ -1,7 +1,5 @@
 <template>
   <div id="NewRandom">
-    <!-- {{ random_data_list }} <br />
-    {{ random_data_list_id }} -->
     <x-chart
       :option="this.option"
       id="id"
@@ -13,10 +11,6 @@
     <br />
     <br />
     <el-button type="primary" @click="save">保存当前数据</el-button>
-    <!-- <el-button plain @click="open1">
-      成功
-    </el-button> -->
-    <!-- <button @click="save">保存当前数据</button> -->
   </div>
 </template>
 
@@ -49,7 +43,7 @@ export default {
                       data: this.random_data_list
                     })
                   })
-              }, 1000 * 1000)
+              }, 1000 * 10)
             }
           }
         },
