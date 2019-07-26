@@ -31,6 +31,5 @@ urlpatterns = [
     path('random_data/save', views.save_random_data, name = 'save_random_data'),
     path('stored_data/', views.stored_data_list, name = 'stored_data_list'),
     url(r'^static/(?P<path>.*)$', static.serve,
-        {'document_root': settings.STATICFILES_DIRS}, name='static'),
-    # url(r'^api-auth/', include('rest_framework.urls', namespace ='rest_framework'))
+          {'document_root': settings.STATIC_ROOT}, name='static'),
 ]

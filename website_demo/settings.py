@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%zv41%43+smk==_b1%4tr9j%e4hc8w#1yc7&=+a(jw6f+q+xgj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -137,10 +137,16 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-# STATIC_ROOT = 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Add for Vue.js
 STATICFILES_DIRS = (
     # os.path.join(os.path.join(BASE_DIR, 'static')),
-    os.path.join(os.path.join(BASE_DIR, 'spa-website-frontend/dist/static')),
-    # os.path.join(BASE_DIR, '/spa-website-frontend/dist/static'),
+    # os.path.join(os.path.join(BASE_DIR, '/spa-website-frontend/dist/static')),
+    os.path.join(BASE_DIR, 'spa-website-frontend/dist/static'),
 )
+# STATICFILES_FINDERS = (
+# 'django.contrib.staticfiles.finders.DefaultStorageFinder',
+#     "django.contrib.staticfiles.finders.FileSystemFinder",
+#     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+#
+# )
